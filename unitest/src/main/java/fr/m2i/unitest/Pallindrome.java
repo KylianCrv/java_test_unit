@@ -1,18 +1,15 @@
 package fr.m2i.unitest;
 
 import java.util.Scanner;
+import org.apache.commons.lang3.StringUtils;
 
 public class Pallindrome {
-
-    public static void main(String[] args) {
-        String string = "kayak";
-        System.out.println(isPalindrome(string));
-    }
 
     public static boolean isPalindrome(String phrase) {
         boolean flag = true;
         //Converts the given string into lowercase
-        phrase = phrase.toLowerCase();
+        phrase = phrase.replaceAll(" ", "").toLowerCase();
+        phrase = StringUtils.stripAccents(phrase);
 
         //Iterate the string forward and backward, compare one character at a time
         //till middle of the string is reached
