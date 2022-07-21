@@ -10,6 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 /**
  *
@@ -41,6 +43,42 @@ public class JavaUnitTest {
     void unAutreTest() {
         System.out.println("un autre test");
         assertTrue(true);
+    }
+
+    @Test
+    void isAPalindrome() {
+        assertTrue(Pallindrome.isPalindrome("Kayak"));
+    }
+
+    @Test
+    void isNotAPalindrome() {
+        assertFalse(Pallindrome.isPalindrome("wefz"));
+    }
+
+    @Test
+    void emptyIsAPalindrome() {
+        assertTrue(Pallindrome.isPalindrome(""));
+    }
+
+    @Test
+    void strWithSpaceIsAPalindrome() {
+        assertTrue(Pallindrome.isPalindrome("La mariee ira mal"));
+    }
+
+    @Test
+    void strWithSpaceIsNotAPalindrome() {
+        assertFalse(Pallindrome.isPalindrome("Bonjour bonjour"));
+    }
+
+    @Test
+    void strWithAccentIsAPalindrome() {
+        assertTrue(Pallindrome.isPalindrome("la mariée ira mal"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"Kayak", "Laval", "Bob"})
+    void additionalsTestIsAPalindrome(String s) {
+        assertTrue(Pallindrome.isPalindrome(s));
     }
 
     @AfterEach

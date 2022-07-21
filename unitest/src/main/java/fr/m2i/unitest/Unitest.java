@@ -12,7 +12,6 @@ public class Unitest {
 
     public static void main(String[] args) {
         System.out.println("Kayak est un palindrome ? " + Pallindrome.isPalindrome("kayak"));
-        System.out.println("Bonjour est un palindrome ? " + Pallindrome.isPalindrome("Bonjour"));
-
+        System.out.println("Bonjour est un palindrome ? " + Pallindrome.isPalindrome("bonjour"));
     }
 }
